@@ -5,7 +5,9 @@ import LocationDetails from "../../Pages/Home/Services/LocationDetails/LocationD
 import Review from "../../Pages/Home/Services/Review/Review";
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails/ServiceDetails";
 import Login from "../../Pages/Login/Login";
+import MyReviews from "../../Pages/MyReviews/MyReviews";
 import SignUp from "../../Pages/SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +34,11 @@ const router = createBrowserRouter([
                 path: "/locationdetails/:id",
                 element: <LocationDetails></LocationDetails>,
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+            },
+            {
+                path: '/myreviews',
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>,
+
             },
             {
                 path: "/review",
