@@ -32,7 +32,7 @@ const router = createBrowserRouter([
             {
                 path: '/service/:id',
                 element: <PrivateRoute><Service></Service></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://travel-service-server-zeta.vercel.app/services/${params.id}`)
             },
             {
                 path: "/login",
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
             {
                 path: '/update/:id',
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
+                loader: ({ params }) => fetch(`https://travel-service-server-zeta.vercel.app/reviews/${params.id}`)
             },
             {
                 path: "/blog",

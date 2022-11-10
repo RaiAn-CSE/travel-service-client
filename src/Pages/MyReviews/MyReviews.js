@@ -14,7 +14,7 @@ const MyReviews = () => {
         const agree = window.confirm(`Are you sure you want to delete : ${review.reviewData}`)
         if (agree) {
             console.log("Deleting user with id:", review._id)
-            fetch(`http://localhost:5000/reviews/${review._id}`, {
+            fetch(`https://travel-service-server-zeta.vercel.app/reviews/${review._id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -30,7 +30,7 @@ const MyReviews = () => {
         }
     }
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://travel-service-server-zeta.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
@@ -45,8 +45,11 @@ const MyReviews = () => {
                 user?.uid ?
                     <>
                         {
-                            getData.map(receive => <p rev={receive}>{<p>name: {receive.userName}</p>}{receive.reviewData} <br />
-                                {receive.serviceName}
+                            getData.map(receive => <p rev={receive}>
+                                Service Name: {receive.serviceName} <br />
+                                {<p>Name: {receive.userName}</p>}
+                                {receive.reviewData}
+
                                 <div>
                                     <button className="btn btn-outline btn-warning btn-xs mr-3 mb-5" onClick={() => handleDelete(receive)}>Delete</button>
                                     <Link to={`/update/${receive._id}`}>

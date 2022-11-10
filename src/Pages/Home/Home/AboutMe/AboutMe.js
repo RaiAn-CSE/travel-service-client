@@ -1,6 +1,6 @@
 import React from 'react';
 import img1 from '../../../../assets/images/about_me/1.png'
-import img2 from '../../../../assets/images/about_me/2.png'
+import img2 from '../../../../assets/images/about_me/2.jpg'
 
 const AboutMe = () => {
     return (
@@ -13,9 +13,6 @@ const AboutMe = () => {
                 <h2 className="card-title">Who is a Tourist?</h2>
                 <p>Anyone travelling for leisure, business, sports, family reasons, romance, shopping, or recreation purposes, and staying overnight in a place outside their usual environment is classed as a tourist. There are many reasons that motivate tourists to visit another destination.
                 </p>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary">My Portfolio</button>
-                </div>
             </div>
             <figure><img src={img2} alt="Album" /></figure>
         </div>

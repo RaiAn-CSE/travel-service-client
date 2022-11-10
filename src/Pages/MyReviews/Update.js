@@ -8,7 +8,7 @@ const Update = () => {
     console.log(user)
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://travel-service-server-zeta.vercel.app/reviews')
             .then(res => res.json())
             .then(data => setUser(data))
     }, [])
@@ -19,7 +19,7 @@ const Update = () => {
         const review = form.review.value;
         const updatedReview = { reviewData: review }
         // console.log(reviewData:updatedReview);
-        fetch(`http://localhost:5000/reviews/${storedUser._id}`, {
+        fetch(`https://travel-service-server-zeta.vercel.app/reviews/${storedUser._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
