@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 
-
-
 const SignUp = () => {
     const { createUser } = useContext(AuthContext)
     const handleSignUp = event => {

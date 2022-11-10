@@ -12,7 +12,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const alamin = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/'
     const googleProvider = new GoogleAuthProvider();
 
     const googleSignIn = () => {
@@ -20,8 +20,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate(alamin, { replace: true })
-                console.log(alamin)
+                navigate(from, { replace: true })
+                console.log(from)
             })
             .catch(error => {
                 console.error(error)
@@ -39,7 +39,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-                navigate(alamin, { replace: true })
+                navigate(from, { replace: true })
             })
             .then(error => console.log(error));
     }
