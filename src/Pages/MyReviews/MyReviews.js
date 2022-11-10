@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 
 const MyReviews = () => {
@@ -8,6 +9,7 @@ const MyReviews = () => {
     const [reviews, setReviews] = useState([])
     // const [deleteReview, setDeleteReview] = useState([])
     const { user } = useContext(AuthContext)
+    useTitle('Reviews')
     // console.log(reviews)
 
     // useEffect(() =>{
@@ -54,10 +56,12 @@ const MyReviews = () => {
                     <>
                         {
                             filtered.map(rev => <p rev={rev}>{<p>name: {rev.userName}</p>}{rev.reviewData}
-                                <button onClick={() => handleDelete(rev)}>X</button>
-                                <Link to={`/update/${rev._id}`}>
-                                    <button>Update</button>
-                                </Link>
+                                <div>
+                                    <button className="btn btn-outline btn-warning btn-xs mr-3 mb-5" onClick={() => handleDelete(rev)}>Delete</button>
+                                    <Link to={`/update/${rev._id}`}>
+                                        <button className="btn btn-outline btn-success btn-xs">Update</button>
+                                    </Link>
+                                </div>
                             </p>)
                         }
                     </>

@@ -2,6 +2,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 
 
@@ -11,6 +12,7 @@ const Login = () => {
     const { loginUser, loginInWithGoogle } = useContext(AuthContext)
     const navigate = useNavigate();
     const location = useLocation();
+    useTitle('Login')
 
     const from = location.state?.from?.pathname || '/'
     const googleProvider = new GoogleAuthProvider();
@@ -73,7 +75,7 @@ const Login = () => {
                         </div>
                     </form>
                     <button onClick={googleSignIn} className='m-5'>Google</button>
-                    <p className='text-center'>New to Genius Car <Link className='text-orange-600 font-bold' to="/registration">Sign Up</Link> </p>
+                    <p className='text-center'>New to Genius Car <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
                 </div>
             </div>
         </div>
