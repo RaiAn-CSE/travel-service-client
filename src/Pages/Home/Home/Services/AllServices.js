@@ -4,16 +4,15 @@ import { useState } from 'react';
 import useTitle from '../../../../hooks/useTitle';
 import ServiceCard from './ServiceCard';
 
-const Services = () => {
+const AllServices = () => {
     const [services, setServices] = useState([]);
     useTitle('AllServices')
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('http://localhost:5000/allservices')
             .then(res => res.json())
             .then(data => setServices(data))
     }, []);
-
     return (
         <div>
             <div className='text-center mb-4'>
@@ -33,4 +32,4 @@ const Services = () => {
     );
 };
 
-export default Services;
+export default AllServices;

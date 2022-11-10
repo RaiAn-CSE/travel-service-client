@@ -14,7 +14,7 @@ const Home = () => {
             <Banner></Banner>
             <Services></Services>
             <div className='my-5 text-center'>
-                <Link to="/services">
+                <Link to="/allservices">
                     <button className="btn btn-primary">See All Services</button>
                 </Link>
             </div>

@@ -40,14 +40,16 @@ const AddService = () => {
 
     }
     return (
-        <div>
+        <div className='mb-5'>
             <form onSubmit={handleReview}>
-                <input name="photoURL" type="text" placeholder="Photo URL" className="input input-ghost w-full  input-bordered" />
-                <input name="title" type="text" placeholder="Title" className="input input-ghost w-full  input-bordered" />
-                <input name="price" type="text" placeholder="Price" className="input input-ghost w-full  input-bordered" />
+                <input name="photoURL" type="text" placeholder="Photo URL" className="input input-ghost w-full  input-bordered my-5" />
+                <input name="title" type="text" placeholder="Title" className="input input-ghost w-full  input-bordered my-5" />
+                <input name="price" type="text" placeholder="Price" className="input input-ghost w-full  input-bordered my-5" />
                 <textarea name="description" className="textarea textarea-bordered h-24 w-full" placeholder="Description" required></textarea>
 
-                <input className='btn' type="submit" value="Details" />
+                <div className='text-center mb-5 my-5'>
+                    <input className='btn' type="submit" value="Add Services" />
+                </div>
             </form>
         </div>
     );

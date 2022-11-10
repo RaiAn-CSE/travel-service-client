@@ -8,10 +8,9 @@ const Footer = () => {
                     <a href="/" className="link link-hover">About us</a>
                     <a href="/" className="link link-hover">Contact</a>
                     <a href="/" className="link link-hover">Jobs</a>
-                    <a href="/" className="link link-hover">Press kit</a>
                 </div>
                 <div>
-                    <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+                    <p>Copyright © 2022 - All right reserved by Travel Service</p>
                 </div>
             </footer>
         </div>

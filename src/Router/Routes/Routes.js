@@ -1,7 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
+import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import AddService from "../../Pages/Home/Home/Services/AddService";
+import AllServices from "../../Pages/Home/Home/Services/AllServices";
 import Service from "../../Pages/Home/Home/Services/Service";
 import Services from "../../Pages/Home/Home/Services/Services";
 import Login from "../../Pages/Login/Login";
@@ -22,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <Services></Services>
+            },
+            {
+                path: '/allservices',
+                element: <AllServices></AllServices>
             },
             {
                 path: '/service/:id',
@@ -49,6 +55,10 @@ const router = createBrowserRouter([
                 path: '/update/:id',
                 element: <PrivateRoute><Update></Update></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
+            },
+            {
+                path: "/blog",
+                element: <Blog></Blog>
             },
 
             { path: '*', element: <div>This route is not found</div> }
