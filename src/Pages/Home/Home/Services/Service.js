@@ -61,15 +61,12 @@ const Service = () => {
     }
     return (
         <>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
+            <div className="card card-compact w-100 bg-base-100 shadow-xl mb-5">
                 <figure><img src={img} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>
                     <p className='text-2xl text-orange-600 font-semibold'>Price: {price}</p>
                     <p>{description}</p>
-                    <div className="card-actions justify-end">
-                        <Link to="/addreviews">Add reviews</Link>
-                    </div>
                 </div>
             </div>
 
@@ -89,11 +86,11 @@ const Service = () => {
             {
                 user?.uid ?
                     <>
-                        <div>
+                        <div className='mb-5 text-center'>
                             <form onSubmit={handleReview}>
                                 <textarea name="review" className="textarea textarea-bordered h-24 w-full" placeholder="Your Message" required></textarea>
 
-                                <input className='btn' type="submit" value="Place Your Order" />
+                                <input className='btn' type="submit" value="Submit Your Comments" />
                             </form>
                         </div>
                     </>
