@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
@@ -7,18 +7,9 @@ import useTitle from '../../hooks/useTitle';
 const MyReviews = () => {
 
     const [reviews, setReviews] = useState([])
-    // const [deleteReview, setDeleteReview] = useState([])
     const { user } = useContext(AuthContext)
     useTitle('Reviews')
-    // console.log(reviews)
 
-    // useEffect(() =>{
-    //     fetch('http://localhost:5000/reviews')
-    //     .then(res => res.json())
-    //     .then(data => setDeleteReview(data))
-    // },[])
-
-    // console.log(deleteReview)
     const handleDelete = review => {
         const agree = window.confirm(`Are you sure you want to delete : ${review.reviewData}`)
         if (agree) {
@@ -43,10 +34,9 @@ const MyReviews = () => {
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
-    const filtered = reviews.filter(obj => {
+    const getData = reviews.filter(obj => {
         return obj.userEmail === user?.email;
     });
-    // console.log(filtered);
 
 
     return (
@@ -55,10 +45,11 @@ const MyReviews = () => {
                 user?.uid ?
                     <>
                         {
-                            filtered.map(rev => <p rev={rev}>{<p>name: {rev.userName}</p>}{rev.reviewData}
+                            getData.map(receive => <p rev={receive}>{<p>name: {receive.userName}</p>}{receive.reviewData} <br />
+                                {receive.serviceName}
                                 <div>
-                                    <button className="btn btn-outline btn-warning btn-xs mr-3 mb-5" onClick={() => handleDelete(rev)}>Delete</button>
-                                    <Link to={`/update/${rev._id}`}>
+                                    <button className="btn btn-outline btn-warning btn-xs mr-3 mb-5" onClick={() => handleDelete(receive)}>Delete</button>
+                                    <Link to={`/update/${receive._id}`}>
                                         <button className="btn btn-outline btn-success btn-xs">Update</button>
                                     </Link>
                                 </div>

@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../../../hooks/useTitle';
 
@@ -20,10 +20,10 @@ const Service = () => {
 
         , [review])
 
-    const filtered = review.filter(obj => {
+    const allData = review.filter(obj => {
         return obj.reviewId === service._id;
     });
-    console.log(filtered);
+    console.log(allData);
 
     const handleReview = event => {
         event.preventDefault();
@@ -32,10 +32,12 @@ const Service = () => {
         console.log("name", uName);
         const userImage = user?.photoURL || '';
         const userEmail = user?.email;
+        const serviceName = service.title;
         const reviewData = form.review.value;
 
         const reviews = {
             reviewId: _id,
+            serviceName,
             userName: uName,
             reviewData,
             userImage,
@@ -75,7 +77,7 @@ const Service = () => {
             <div>
 
                 {
-                    filtered.map(rev => <p rev={rev}>{
+                    allData.map(rev => <p rev={rev}>{
                         <img
                             style={{ height: '30px' }}
                             src={rev.userImage}
@@ -100,7 +102,6 @@ const Service = () => {
                     <>
                     </>
             }
-
 
         </>
     );

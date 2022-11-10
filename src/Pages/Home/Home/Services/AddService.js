@@ -30,11 +30,6 @@ const AddService = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                // if(data.acknowledged){
-                //     alert("Order placed Successfully")
-                //     form.reset();
-                // }
-
             })
             .catch(err => console.log(err))
 
