@@ -36,6 +36,7 @@ const AddService = () => {
     }
     return (
         <div className='mb-5'>
+            {/* Input For Add Services  */}
             <form onSubmit={handleReview}>
                 <input name="photoURL" type="text" placeholder="Photo URL" className="input input-ghost w-full  input-bordered my-5" />
                 <input name="title" type="text" placeholder="Title" className="input input-ghost w-full  input-bordered my-5" />

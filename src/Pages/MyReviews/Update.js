@@ -18,7 +18,6 @@ const Update = () => {
         const form = event.target;
         const review = form.review.value;
         const updatedReview = { reviewData: review }
-        // console.log(reviewData:updatedReview);
         fetch(`https://travel-service-server-zeta.vercel.app/reviews/${storedUser._id}`, {
             method: "PUT",
             headers: {
